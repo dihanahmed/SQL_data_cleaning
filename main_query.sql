@@ -153,50 +153,50 @@ modify column `layoffs_date` date;
 
 
 
--- -- (3) NULL and Blank values handling ------------------------------------------------------
--- select * 
--- from layoffs_staging2
--- where total_laid_off  is null
--- and percentage_laid_off is null;
+-- (3) NULL and Blank values handling ------------------------------------------------------
+select * 
+from layoffs_staging2
+where total_laid_off  is null
+and percentage_laid_off is null;
 
--- update layoffs_staging2
--- set industry= null
--- where industry='';
+update layoffs_staging2
+set industry= null
+where industry='';
 
--- select *
--- from layoffs_staging2
--- where  industry is null
--- or industry ='';
+select *
+from layoffs_staging2
+where  industry is null
+or industry ='';
 
--- select *
--- from layoffs_staging2
--- where company = 'Airbnb';
-
-
--- select st1.industry, st2.industry
--- from layoffs_staging2 as st1
--- join layoffs_staging2 as st2
--- 	on st1.company=st2.company
--- where st1.industry is null
--- and st2.industry is not null;
-
--- update layoffs_staging2 st1
--- join layoffs_staging2 st2
--- 	on st1.company= st2.company
--- set st1.industry= st2.industry
--- where st1.industry is null
--- and st2.industry is not null;
-
--- select company, industry
--- from layoffs_staging2
--- where industry is null;
-
--- select *
--- from layoffs_staging2
--- where company like "Bally%";
+select *
+from layoffs_staging2
+where company = 'Airbnb';
 
 
--- -- (4)deleting some unnecessary columns -----------------------------------------------------
+select st1.industry, st2.industry
+from layoffs_staging2 as st1
+join layoffs_staging2 as st2
+	on st1.company=st2.company
+where st1.industry is null
+and st2.industry is not null;
+
+update layoffs_staging2 st1
+join layoffs_staging2 st2
+	on st1.company= st2.company
+set st1.industry= st2.industry
+where st1.industry is null
+and st2.industry is not null;
+
+select company, industry
+from layoffs_staging2
+where industry is null;
+
+select *
+from layoffs_staging2
+where company like "Bally%";
+
+
+-- (4)deleting some unnecessary columns -----------------------------------------------------
 
 -- select * 
 -- from layoffs_staging2
