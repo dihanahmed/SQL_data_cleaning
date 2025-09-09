@@ -213,5 +213,6 @@ and percentage_laid_off is null;
 select *
 from layoffs_staging2;
 
+-- to drop unnecessary row column which we created during identifying duplicates
 alter table layoffs_staging2
 drop column row_num;
